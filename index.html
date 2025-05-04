@@ -6,10 +6,25 @@
     <title>Portatil</title>
 </head>
 <body>
+    <h1>Portatil</h1>
+    
+    <form action="">
+        <label for="">Marca: <input type="text" name="Marca" id="marca"></label>
+        <p><label for="">Modelo: <input type="text" name="Modelo" id="modelo"></label></p>
+        <p><label for="">Procesador: <input type="text" name="Procesador" id="procesador"></label></p>
+        <p><label for="">Precio €: <input type="text" name="Precio" id="precio"></label></p>
+    </form>
+    
     <script>
         fetch('portatil.json')
         .then(response => response.json())
-        .then(portatil => alert(portatil.modelo));
+        .then(portatil => {
+            document.getElementById("marca").value = portatil.marca;
+            document.getElementById("modelo").value = portatil.modelo;
+            document.getElementById("procesador").value = portatil.procesador;
+            document.getElementById("precio").value = portatil.precio_eur;
+        });
     </script>
+
 </body>
 </html>
